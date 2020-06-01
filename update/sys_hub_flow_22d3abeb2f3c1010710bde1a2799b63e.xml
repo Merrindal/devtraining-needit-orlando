@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>This flow checks all needit tasks to determine if they are overdue and if they are, updates the tasks</description>
+        <internal_name>mindys_flow_challenge</internal_name>
+        <label_cache>[{"name":"1cda1bbe-e3b9-4084-b93b-acd66e1622c8.property_value","label":"1➛Property value","type":"integer","base_type":"integer","attributes":{"uiType":"integer","uiTypeLabel":"Integer","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"15b7373e-1705-47e0-90b3-f9b4b6f491c9"}},{"name":"a36fc321-25fa-4ce2-9e2a-1072fbdf8ce3.calculated_date","label":"2➛Calculated date","reference_display":"Calculated date","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"5747cbee-94f2-478f-98a9-3bfbddcc78b0"}},{"name":"c893ab7e-2044-403e-a8f4-f2b65a404c67.Records","label":"3➛NeedIt Task Records","reference":"x_58872_needit_needit_task","reference_display":"NeedIt Task","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"c893ab7e-2044-403e-a8f4-f2b65a404c67.Table","label":"3➛NeedIt Task Table","reference":"x_58872_needit_needit_task","reference_display":"NeedIt Task","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"c893ab7e-2044-403e-a8f4-f2b65a404c67.Count","label":"3➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"8f2b2bab-ed94-4cd2-bbc0-827d0e2cec10.record","label":"4➛Record","reference":"sys_hub_action_input","reference_display":"Action Inputs","type":"document_id","base_type":"document_id","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"document_id"}},{"name":"8f2b2bab-ed94-4cd2-bbc0-827d0e2cec10.table_name","label":"4➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"table_name"}},{"name":"8f2b2bab-ed94-4cd2-bbc0-827d0e2cec10.status","label":"4➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice"}},{"name":"8f2b2bab-ed94-4cd2-bbc0-827d0e2cec10.error_message","label":"4➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string"}},{"name":"a08727c5-77d6-4f40-862d-2c48ff71e6f3.record","label":"5➛Record","reference":"sys_hub_action_input","reference_display":"Action Inputs","type":"document_id","base_type":"document_id","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"document_id"}},{"name":"a08727c5-77d6-4f40-862d-2c48ff71e6f3.table_name","label":"5➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"table_name"}},{"name":"a08727c5-77d6-4f40-862d-2c48ff71e6f3.status","label":"5➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice"}},{"name":"a08727c5-77d6-4f40-862d-2c48ff71e6f3.error_message","label":"5➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string"}},{"name":"ba82aece-a3a2-4440-87aa-33f3847ab260.record","label":"4➛Record","reference_display":"Record","type":"document_id","base_type":"document_id","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ba82aece-a3a2-4440-87aa-33f3847ab260.table_name","label":"4➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"d6672f59-cba4-4926-af9c-7cc591d09a7a.item","label":"4➛NeedIt Task Record","reference":"x_58872_needit_needit_task","reference_display":"NeedIt Task","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"dd31ebf8-aaf9-4901-a54f-e73f6d1f0159.record","label":"5➛Record","reference_display":"Record","type":"document_id","base_type":"document_id","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"dd31ebf8-aaf9-4901-a54f-e73f6d1f0159.table_name","label":"5➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"b3fa036f-0e32-4e56-a0f7-2b851d7e5957.record","label":"4.1➛Record","reference_display":"Record","type":"document_id","base_type":"document_id","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"b3fa036f-0e32-4e56-a0f7-2b851d7e5957.table_name","label":"4.1➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"d6672f59-cba4-4926-af9c-7cc591d09a7a.item.u_needit","label":"4➛NeedIt Task Record➛NeedIt","reference":"x_58872_needit_needit","reference_display":"NeedIt","type":"reference","base_type":"reference","parent_table_name":"x_58872_needit_needit_task","column_name":"u_needit"},{"name":"d6672f59-cba4-4926-af9c-7cc591d09a7a.item.number","label":"4➛NeedIt Task Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_58872_needit_needit_task","column_name":"number"}]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <name>Mindy's Flow challenge</name>
+        <natlang/>
+        <outputs/>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:30:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>22d3abeb2f3c1010710bde1a2799b63e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Mindy's Flow challenge</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_hub_flow_22d3abeb2f3c1010710bde1a2799b63e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=22d3abeb2f3c1010710bde1a2799b63e"/>
+    <sys_variable_value action="delete_multiple" query="document_key=22d3abeb2f3c1010710bde1a2799b63e"/>
+    <sys_hub_flow_component action="delete_multiple" query="flow=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT IN15f9afef2f3c1010710bde1a2799b618,55f9afef2f3c1010710bde1a2799b614,59f9afef2f3c1010710bde1a2799b61d,95f9afef2f3c1010710bde1a2799b611,99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>15f9afef2f3c1010710bde1a2799b618</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>c893ab7e-2044-403e-a8f4-f2b65a404c67</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=15f9afef2f3c1010710bde1a2799b618"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>15f9afef2f3c1010710bde1a2799b618</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>55f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <value>x_58872_needit_needit_task</value>
+        <variable display_value="">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=15f9afef2f3c1010710bde1a2799b618"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>15f9afef2f3c1010710bde1a2799b618</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>11f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>due_date&lt;={{a36fc321-25fa-4ce2-9e2a-1072fbdf8ce3.calculated_date}}^state=1</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>15f9afef2f3c1010710bde1a2799b618</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>d1f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Get Days Ago Date">48f753c92f301010710bde1a2799b61d</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>55f9afef2f3c1010710bde1a2799b614</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>a36fc321-25fa-4ce2-9e2a-1072fbdf8ce3</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=55f9afef2f3c1010710bde1a2799b614"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>55f9afef2f3c1010710bde1a2799b614</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 05:06:46</sys_created_on>
+        <sys_id>d2c97fab2f7c1010710bde1a2799b6fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:06:46</sys_updated_on>
+        <value/>
+        <variable display_value="">08f753c92f301010710bde1a2799b61e</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=55f9afef2f3c1010710bde1a2799b614"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>days_ago</field>
+        <id>55f9afef2f3c1010710bde1a2799b614</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 05:06:46</sys_created_on>
+        <sys_id>52c97fab2f7c1010710bde1a2799b6fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:06:46</sys_updated_on>
+        <table>var__m_sys_hub_action_input_48f753c92f301010710bde1a2799b61d</table>
+        <value>{{1cda1bbe-e3b9-4084-b93b-acd66e1622c8.property_value}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">91f9afef2f3c1010710bde1a2799b61d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>59f9afef2f3c1010710bde1a2799b61d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>d6672f59-cba4-4926-af9c-7cc591d09a7a</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=59f9afef2f3c1010710bde1a2799b61d"/>
+    <sys_element_mapping action="delete_multiple" query="id=59f9afef2f3c1010710bde1a2799b61d"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>59f9afef2f3c1010710bde1a2799b61d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>d5f9afef2f3c1010710bde1a2799b620</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{c893ab7e-2044-403e-a8f4-f2b65a404c67.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Get Property">a235d3492f301010710bde1a2799b659</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>95f9afef2f3c1010710bde1a2799b611</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>1cda1bbe-e3b9-4084-b93b-acd66e1622c8</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=95f9afef2f3c1010710bde1a2799b611"/>
+    <sys_hub_sub_flow_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <inputs/>
+        <inputs/>
+        <order>4.1</order>
+        <parent_ui_id>d6672f59-cba4-4926-af9c-7cc591d09a7a</parent_ui_id>
+        <subflow display_value="Handle Overdue NeedIt Tasks">7332ebab2f3c1010710bde1a2799b6db</subflow>
+        <sys_class_name>sys_hub_sub_flow_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>99f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>f65436f9-97a3-4e1b-9a05-0238f136386a</ui_id>
+    </sys_hub_sub_flow_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_element_mapping action="delete_multiple" query="id=99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>needit_task</field>
+        <id>99f9afef2f3c1010710bde1a2799b61a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>5df9afef2f3c1010710bde1a2799b61c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_7332ebab2f3c1010710bde1a2799b6db</table>
+        <value>{{d6672f59-cba4-4926-af9c-7cc591d09a7a.item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reason</field>
+        <id>99f9afef2f3c1010710bde1a2799b61a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>99f9afef2f3c1010710bde1a2799b61c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_7332ebab2f3c1010710bde1a2799b6db</table>
+        <value>Overdue task{{d6672f59-cba4-4926-af9c-7cc591d09a7a.item.number}}</value>
+    </sys_element_mapping>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT INd9f9a7ef2f3c1010710bde1a2799b653"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <name>Weekly</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:36</sys_created_on>
+        <sys_id>d9f9a7ef2f3c1010710bde1a2799b653</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <trigger_definition display_value="Weekly">cf352104c32222002841b63b12d3ae1f</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>weekly</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=d9f9a7ef2f3c1010710bde1a2799b653"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>d9f9a7ef2f3c1010710bde1a2799b653</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>91f9a7ef2f3c1010710bde1a2799b655</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <value>5</value>
+        <variable display_value="">c685a104c32222002841b63b12d3aed3</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>d9f9a7ef2f3c1010710bde1a2799b653</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>9df9a7ef2f3c1010710bde1a2799b654</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <value>1970-01-01 23:00:00</value>
+        <variable display_value="">a745a104c32222002841b63b12d3ae18</variable>
+    </sys_variable_value>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT INaed3abeb2f3c1010710bde1a2799b63e"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>22d3abeb2f3c1010710bde1a2799b63e</id>
+        <name>Mindy's Flow challenge</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:30:56</sys_created_on>
+        <sys_id>aed3abeb2f3c1010710bde1a2799b63e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:30:56</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_hub_action_instance action="delete_multiple" query="flow=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT IN15f9afef2f3c1010710bde1a2799b618,55f9afef2f3c1010710bde1a2799b614,95f9afef2f3c1010710bde1a2799b611"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>15f9afef2f3c1010710bde1a2799b618</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>c893ab7e-2044-403e-a8f4-f2b65a404c67</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=15f9afef2f3c1010710bde1a2799b618"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>15f9afef2f3c1010710bde1a2799b618</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>55f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <value>x_58872_needit_needit_task</value>
+        <variable display_value="">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=15f9afef2f3c1010710bde1a2799b618"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>15f9afef2f3c1010710bde1a2799b618</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>11f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>due_date&lt;={{a36fc321-25fa-4ce2-9e2a-1072fbdf8ce3.calculated_date}}^state=1</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>15f9afef2f3c1010710bde1a2799b618</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>d1f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Get Days Ago Date">48f753c92f301010710bde1a2799b61d</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>55f9afef2f3c1010710bde1a2799b614</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>a36fc321-25fa-4ce2-9e2a-1072fbdf8ce3</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=55f9afef2f3c1010710bde1a2799b614"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>55f9afef2f3c1010710bde1a2799b614</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 05:06:46</sys_created_on>
+        <sys_id>d2c97fab2f7c1010710bde1a2799b6fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:06:46</sys_updated_on>
+        <value/>
+        <variable display_value="">08f753c92f301010710bde1a2799b61e</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=55f9afef2f3c1010710bde1a2799b614"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>days_ago</field>
+        <id>55f9afef2f3c1010710bde1a2799b614</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 05:06:46</sys_created_on>
+        <sys_id>52c97fab2f7c1010710bde1a2799b6fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:06:46</sys_updated_on>
+        <table>var__m_sys_hub_action_input_48f753c92f301010710bde1a2799b61d</table>
+        <value>{{1cda1bbe-e3b9-4084-b93b-acd66e1622c8.property_value}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=55f9afef2f3c1010710bde1a2799b614^sys_idNOT IN91f9afef2f3c1010710bde1a2799b615"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>days_ago</input_name>
+        <instance>55f9afef2f3c1010710bde1a2799b614</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"days_ago":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>91f9afef2f3c1010710bde1a2799b615</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:06:46</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Get Property">a235d3492f301010710bde1a2799b659</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>95f9afef2f3c1010710bde1a2799b611</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>1cda1bbe-e3b9-4084-b93b-acd66e1622c8</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=95f9afef2f3c1010710bde1a2799b611"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=95f9afef2f3c1010710bde1a2799b611^sys_idNOT INd1f9afef2f3c1010710bde1a2799b612"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>property</input_name>
+        <instance>95f9afef2f3c1010710bde1a2799b611</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"property":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>d1f9afef2f3c1010710bde1a2799b612</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT IN99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_hub_sub_flow_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <inputs/>
+        <inputs/>
+        <order>4.1</order>
+        <parent_ui_id>d6672f59-cba4-4926-af9c-7cc591d09a7a</parent_ui_id>
+        <subflow display_value="Handle Overdue NeedIt Tasks">7332ebab2f3c1010710bde1a2799b6db</subflow>
+        <sys_class_name>sys_hub_sub_flow_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>99f9afef2f3c1010710bde1a2799b61a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>f65436f9-97a3-4e1b-9a05-0238f136386a</ui_id>
+    </sys_hub_sub_flow_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_element_mapping action="delete_multiple" query="id=99f9afef2f3c1010710bde1a2799b61a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>needit_task</field>
+        <id>99f9afef2f3c1010710bde1a2799b61a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>5df9afef2f3c1010710bde1a2799b61c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_7332ebab2f3c1010710bde1a2799b6db</table>
+        <value>{{d6672f59-cba4-4926-af9c-7cc591d09a7a.item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reason</field>
+        <id>99f9afef2f3c1010710bde1a2799b61a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>99f9afef2f3c1010710bde1a2799b61c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_7332ebab2f3c1010710bde1a2799b6db</table>
+        <value>Overdue task{{d6672f59-cba4-4926-af9c-7cc591d09a7a.item.number}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=22d3abeb2f3c1010710bde1a2799b63e^sys_idNOT IN59f9afef2f3c1010710bde1a2799b61d"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">91f9afef2f3c1010710bde1a2799b61d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Mindy's Flow challenge">22d3abeb2f3c1010710bde1a2799b63e</flow>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>59f9afef2f3c1010710bde1a2799b61d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 05:08:25</sys_updated_on>
+        <ui_id>d6672f59-cba4-4926-af9c-7cc591d09a7a</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=59f9afef2f3c1010710bde1a2799b61d"/>
+    <sys_element_mapping action="delete_multiple" query="id=59f9afef2f3c1010710bde1a2799b61d"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>59f9afef2f3c1010710bde1a2799b61d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-22 03:57:37</sys_created_on>
+        <sys_id>d5f9afef2f3c1010710bde1a2799b620</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-22 03:57:37</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{c893ab7e-2044-403e-a8f4-f2b65a404c67.Records}}</value>
+    </sys_element_mapping>
+</record_update>
